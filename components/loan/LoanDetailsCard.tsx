@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Loan } from '../../types';
 import Card from '../ui/Card';
-import ProgressBar from '../UI/ProgressBar';
+import ProgressBar from '../ui/ProgressBar';
 import Button from '../ui/Button';
 import { useTheme } from '../ui/ThemeProvider';
 import { 

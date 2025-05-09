@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Loan } from '../../types';
 import Card from '../ui/Card';
-import ProgressBar from '../UI/ProgressBar';
+import ProgressBar from '../ui/ProgressBar';
 import { useTheme } from '../ui/ThemeProvider';
 import { formatCurrency, calculateLoanProgress } from '../../utils/calculations';
 import { getDaysRemaining, isEmiSoonDue, isEmiOverdue } from '../../utils/dateUtils';

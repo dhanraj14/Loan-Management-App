@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Loan, SalaryInfo } from '../../types';
 import Card from '../ui/Card';
-import ProgressBar from '../UI/ProgressBar';
+import ProgressBar from '../ui/ProgressBar';
 import { useTheme } from '../ui/ThemeProvider';
 import { 
   formatCurrency, 
