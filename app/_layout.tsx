@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { Stack } from 'expo-router';
+import { Redirect, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { AppProvider } from '@/context/AppContext';
+import { AuthProvider, useAuth } from '@/context/AuthContext';
 
 import { 
   useFonts,
@@ -27,6 +28,25 @@ SplashScreen.preventAutoHideAsync().catch(() => {
   // Ignore error
 });
 
+function RootLayoutNav() {
+  const { session, isLoading } = useAuth();
+
+  if (isLoading) {
+    return null;
+  }
+
+  if (!session) {
+    return <Redirect href="/login" />;
+  }
+
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="+not-found" />
+    </Stack>
+  );
+}
+
 export default function RootLayout() {
   useFrameworkReady();
 
@@ -48,7 +68,6 @@ export default function RootLayout() {
           await SplashScreen.hideAsync();
         }
       } catch (error) {
-        // Ignore error hiding splash screen
         console.warn('Error hiding splash screen:', error);
       }
     };
@@ -56,25 +75,18 @@ export default function RootLayout() {
     hideSplash();
   }, [fontsLoaded, fontError]);
 
-  // Show loading state while fonts are loading
   if (!fontsLoaded && !fontError) {
     return null;
   }
 
-  // If there was a font loading error, continue with system fonts
-  if (fontError) {
-    console.warn('Error loading fonts:', fontError);
-  }
-
   return (
-    <AppProvider>
-      <ThemeProvider>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    </AppProvider>
+    <AuthProvider>
+      <AppProvider>
+        <ThemeProvider>
+          <RootLayoutNav />
+          <StatusBar style="auto" />
+        </ThemeProvider>
+      </AppProvider>
+    </AuthProvider>
   );
 }
