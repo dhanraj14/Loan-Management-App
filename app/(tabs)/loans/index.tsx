@@ -14,6 +14,7 @@ import { useTheme } from '../../../components/ui/ThemeProvider';
 import LoanCard from '../../../components/loan/LoanCard';
 import AddLoanForm from '../../../components/loan/AddLoanForm';
 import { Plus, X } from 'lucide-react-native';
+import { Loan } from '../../../types'; // Adjust the path to where Loan is defined
 
 export default function LoansScreen() {
   const { user, addLoan, markEmiAsPaid } = useAppContext();
