@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { useTheme } from '@/components/ui/ThemeProvider';
-import { useAuth } from '@/context/AuthContext';
-import Input from '@/components/ui/Input';
-import Button from '@/components/ui/Button';
+import { useTheme } from '../components/ui/ThemeProvider';
+import { useAuth } from '../context/AuthContext';
+import Input from '../components/ui/Input';
+import Button from '../components/ui/Button';
 import { Mail, Lock, User, ArrowRight } from 'lucide-react-native';
 
 export default function SignupScreen() {
@@ -65,7 +65,7 @@ export default function SignupScreen() {
           keyboardType="email-address"
           autoCapitalize="none"
           leftIcon={<Mail size={20} color={colors.subtext} />}
-          error={error}
+          error={error ?? undefined}
         />
 
         <Input
@@ -90,7 +90,7 @@ export default function SignupScreen() {
           <Text style={[styles.loginText, { color: colors.subtext }]}>
             Already have an account?
           </Text>
-          <TouchableOpacity onPress={() => router.push('/login')}>
+          <TouchableOpacity onPress={() => router.push('../login')}>
             <Text style={[styles.loginLink, { color: colors.primary }]}>
               Sign In
             </Text>

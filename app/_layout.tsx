@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Redirect, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useFrameworkReady } from '@/hooks/useFrameworkReady';
-import { ThemeProvider } from '@/components/ui/ThemeProvider';
-import { AppProvider } from '@/context/AppContext';
-import { AuthProvider, useAuth } from '@/context/AuthContext';
+import { useFrameworkReady } from '../hooks/useFrameworkReady';
+import { ThemeProvider } from '../components/ui/ThemeProvider';
+import { AppProvider } from '../context/AppContext';
+import { AuthProvider, useAuth } from '../context/AuthContext';
 
 import { 
   useFonts,
@@ -36,7 +36,7 @@ function RootLayoutNav() {
   }
 
   if (!session) {
-    return <Redirect href="/login" />;
+    return <Redirect href="/(tabs)/loans" />;
   }
 
   return (
