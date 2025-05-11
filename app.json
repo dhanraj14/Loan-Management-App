@@ -8,6 +8,8 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "EXPO_PUBLIC_SUPABASE_URL": "https://ytzcuxsjxdrmvpvyweuv.supabase.co",
+    "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0emN1eHNqeGRybXZwdnl3ZXV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY5NjM0MjEsImV4cCI6MjA2MjUzOTQyMX0.sVCdTRriVGhmltmTXrcTXSlQV5MLpYrnX3PubfybFNY",
     "ios": {
       "supportsTablet": true
     },
